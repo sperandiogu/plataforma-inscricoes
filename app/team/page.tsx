@@ -1,8 +1,8 @@
-import prisma from '@/lib/prisma'
 import { getServerSession } from "next-auth/next"
-import Link from "next/link"
-import { redirect } from "next/navigation"
 import { authOptions } from "../api/auth/[...nextauth]/route"
+import { redirect } from "next/navigation"
+import Link from "next/link"
+import prisma from '@/lib/prisma'
 import UserList from './UserList'
 
 export default async function TeamPage() {
@@ -58,3 +58,4 @@ export default async function TeamPage() {
     </div>
   )
 }
+

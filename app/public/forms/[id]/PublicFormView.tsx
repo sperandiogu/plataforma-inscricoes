@@ -1,8 +1,11 @@
 'use client'
 
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Select,
   SelectContent,
@@ -10,11 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { Loader2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 
 interface Form {
   id: string
@@ -57,7 +57,7 @@ export default function PublicFormView({ form }: { form: Form }) {
 
       // Clear form
       setFormData({})
-
+      
       // Reset form element
       const formElement = e.target as HTMLFormElement
       formElement.reset()
@@ -95,7 +95,7 @@ export default function PublicFormView({ form }: { form: Form }) {
                   {field.name}
                   {field.required && <span className="text-red-500 ml-1">*</span>}
                 </Label>
-
+                
                 {field.type === 'textarea' ? (
                   <Textarea
                     id={field.name}
@@ -151,3 +151,4 @@ export default function PublicFormView({ form }: { form: Form }) {
     </div>
   )
 }
+

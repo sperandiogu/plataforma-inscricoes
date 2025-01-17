@@ -1,8 +1,11 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Select,
   SelectContent,
@@ -10,11 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { Loader2, Plus, Trash2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 
 interface Field {
   id: string
@@ -33,15 +33,15 @@ interface Form {
 
 export default function FormEditor({ initialForm }: { initialForm: Form }) {
   // Parse fields if they're a string, or use as is if already parsed
-  const parsedFields = typeof initialForm.fields === 'string'
-    ? JSON.parse(initialForm.fields)
+  const parsedFields = typeof initialForm.fields === 'string' 
+    ? JSON.parse(initialForm.fields) 
     : initialForm.fields
 
   const [form, setForm] = useState({
     ...initialForm,
     fields: parsedFields || []
   })
-
+  
   const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
   const router = useRouter()
@@ -215,3 +215,4 @@ export default function FormEditor({ initialForm }: { initialForm: Form }) {
     </form>
   )
 }
+

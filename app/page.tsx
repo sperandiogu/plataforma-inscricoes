@@ -1,7 +1,8 @@
-import { getServerSession } from "next-auth/next"
 import Link from 'next/link'
-import { redirect } from "next/navigation"
+import { getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]/route"
+import { redirect } from "next/navigation"
+import ConnectionTest from './components/ConnectionTest'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -64,9 +65,13 @@ export default async function Home() {
                 </p>
               </div>
             </div>
+            <div className="mt-8">
+              <ConnectionTest />
+            </div>
           </div>
         </div>
       </div>
     </div>
   )
 }
+

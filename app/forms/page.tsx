@@ -1,9 +1,10 @@
-import prisma from '@/lib/prisma'
 import { getServerSession } from "next-auth/next"
-import Link from "next/link"
-import { redirect } from "next/navigation"
 import { authOptions } from "../api/auth/[...nextauth]/route"
+import { redirect } from "next/navigation"
+import Link from "next/link"
+import prisma from '@/lib/prisma'
 import FormList from './FormList'
+import { Loader2 } from 'lucide-react'
 
 export default async function FormsPage() {
   const session = await getServerSession(authOptions)
@@ -64,7 +65,7 @@ export default async function FormsPage() {
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <h1 className="text-2xl font-semibold text-gray-900 mb-6">Gerenciar Formulários</h1>
-
+          
           {error ? (
             <div className="rounded-md bg-red-50 p-4">
               <div className="flex">
@@ -88,3 +89,4 @@ export default async function FormsPage() {
     </div>
   )
 }
+

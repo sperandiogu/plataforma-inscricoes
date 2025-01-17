@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -139,3 +139,4 @@ export default function Register() {
     </div>
   )
 }
+

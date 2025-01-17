@@ -59,9 +59,9 @@
     "vaul": "^0.9.6",
     "zod": "^3.24.1",
     "next-auth": "latest",
-    "@next-auth/prisma-adapter": "latest",
+    "@prisma/client": "latest",
     "bcrypt": "latest",
-    "@prisma/client": "latest"
+    "@next-auth/prisma-adapter": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

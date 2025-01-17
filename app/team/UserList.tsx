@@ -1,6 +1,10 @@
 'use client'
 
+import { useState } from 'react'
+import { User } from '@prisma/client'
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
   Dialog,
   DialogContent,
@@ -10,8 +14,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Select,
   SelectContent,
@@ -20,9 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useToast } from "@/components/ui/use-toast"
-import { User } from '@prisma/client'
 import { Loader2 } from 'lucide-react'
-import { useState } from 'react'
 
 type UserWithoutPassword = Omit<User, 'password'>
 
@@ -348,8 +348,8 @@ export default function UserList({ initialUsers }: { initialUsers: UserWithoutPa
                           </DialogHeader>
                           <DialogFooter>
                             <Button variant="outline" onClick={() => setIsDeleteDialogOpen(false)}>Cancelar</Button>
-                            <Button
-                              variant="destructive"
+                            <Button 
+                              variant="destructive" 
                               onClick={() => userToDelete && handleDelete(userToDelete)}
                               disabled={isLoading}
                             >
@@ -376,3 +376,4 @@ export default function UserList({ initialUsers }: { initialUsers: UserWithoutPa
     </div>
   )
 }
+

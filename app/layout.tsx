@@ -1,9 +1,9 @@
-import { Toaster } from "@/components/ui/toaster"
-import { getServerSession } from "next-auth/next"
+import './globals.css'
 import { Inter } from 'next/font/google'
+import { getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]/route"
 import Provider from "./components/Provider"
-import './globals.css'
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,3 +30,4 @@ export default async function RootLayout({
     </html>
   )
 }
+

@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Select,
   SelectContent,
@@ -11,11 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
-import { GripVertical, Loader2, Plus, Trash2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { Card, CardContent } from "@/components/ui/card"
+import { Loader2, Plus, Trash2, GripVertical } from 'lucide-react'
 
 interface FormField {
   id: string
@@ -78,12 +78,12 @@ export default function FormBuilder() {
       }
 
       const result = await response.json()
-
+      
       toast({
         title: "Formulário criado",
         description: "O formulário foi criado com sucesso.",
       })
-
+      
       router.push(`/forms/${result.id}`)
     } catch (error) {
       console.error('Erro ao criar formulário:', error)
@@ -215,7 +215,7 @@ export default function FormBuilder() {
                     <Input
                       id={`field-${index}-options`}
                       value={field.options?.join(', ') || ''}
-                      onChange={(e) => updateField(index, {
+                      onChange={(e) => updateField(index, { 
                         options: e.target.value.split(',').map(s => s.trim()).filter(Boolean)
                       })}
                       placeholder="Opção 1, Opção 2, Opção 3"
@@ -243,3 +243,4 @@ export default function FormBuilder() {
     </form>
   )
 }
+

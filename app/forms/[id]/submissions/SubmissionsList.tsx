@@ -1,12 +1,6 @@
 'use client'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { useState } from 'react'
 import {
   Table,
   TableBody,
@@ -15,6 +9,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 interface Submission {
   id: string
@@ -28,10 +29,10 @@ interface Form {
   fields: string
 }
 
-export default function SubmissionsList({
-  form,
-  submissions
-}: {
+export default function SubmissionsList({ 
+  form, 
+  submissions 
+}: { 
   form: Form
   submissions: Submission[]
 }) {
@@ -91,3 +92,4 @@ export default function SubmissionsList({
     </Card>
   )
 }
+
